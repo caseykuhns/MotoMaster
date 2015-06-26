@@ -1,0 +1,29 @@
+/*
+ * circularBuffer.h
+ *
+ *  Created on: Apr 27, 2014
+ *      Author: caseykuhns
+ */
+
+#ifndef CIRCULARBUFFER_H_
+#define CIRCULARBUFFER_H_
+#include <avr/io.h>
+
+#define BUFFER_SIZE 8
+
+//
+void bufferInit(uint8_t size);
+
+//put a character into the buffer
+void putCharInBuffer(uint8_t data);
+//pull a character from the buffer
+uint8_t getCharFromBuffer(void);
+//get the current length of the buffer
+uint8_t getBufferLength(void);
+//pull a character from the buffer with out disturbing the buffer
+uint8_t peekBuffer(uint8_t location);
+//delete the latest character in the buffer
+void deleteBufferEntry(void);
+
+
+#endif /* CIRCULARBUFFER_H_ */

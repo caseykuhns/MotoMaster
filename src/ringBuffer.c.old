@@ -1,0 +1,96 @@
+/*
+ * circularBuffer.c
+ *
+ *  Created on: May 11, 2014
+ *      Author: caseykuhns
+ */
+#include "ringBuffer.h"
+#include <avr/interrupt.h>
+#include "serial.h"
+
+uint8_t charBuffer[BUFFER_SIZE];
+uint8_t bufferLength;
+uint8_t bufferHead;
+uint8_t bufferTail;
+
+
+
+void putCharInBuffer(uint8_t data){
+
+	if(bufferLength >= BUFFER_SIZE){
+
+	//	bufferLength = BUFFER_SIZE - 1;
+	//	bufferTail = bufferHead + BUFFER_SIZE;
+				//DDRB = 0xff;
+				//PORTB = 0xff;
+	//	bufferTail = bufferTail % BUFFER_SIZE;
+			return;
+		}
+
+	if(bufferLength < BUFFER_SIZE){
+			charBuffer[bufferTail] = data;
+			//Advance the ring buffer tail by 1
+			bufferTail++;
+			//Add one to the available bytes count
+			bufferLength++;
+			//Check bufferTail to ensure it does not overflow
+			bufferTail = bufferTail % BUFFER_SIZE;
+		}
+
+
+	PORTB = bufferLength;
+
+	//serialPutChar(bufferLength + 48);
+
+};
+
+uint8_t getCharFromBuffer(void){
+	//Check if there is data in the buffer, if not return -1
+	if(bufferLength == 0) return -1;
+	//return character from buffer
+	uint8_t data = charBuffer[bufferHead];
+	//Advance the ring buffer head by 1
+	bufferHead++;
+	//Subtract 1 from the available bytes count
+	bufferLength--;
+	//Check bufferHead to ensure it does not overflow
+	bufferHead = bufferHead % BUFFER_SIZE;
+
+	PORTB = 0xFF;
+
+
+	return data;
+}
+
+uint8_t getBufferLength(void){
+	return bufferLength;
+}
+
+uint8_t peekBuffer(uint8_t location){
+	//Check if there is data in the buffer, if not return -1
+	if(bufferLength == 0) return -1;
+	//return character from buffer
+	uint8_t data = charBuffer[(bufferHead + location) % BUFFER_SIZE];
+
+	PORTB = bufferLength;
+
+
+	return data;
+
+}
+
+void deleteBufferEntry(void){
+	//bring bufferTail back by one space
+	cli();
+
+	bufferTail--;
+	bufferTail = bufferTail % BUFFER_SIZE;
+	if(bufferLength >= 2){
+		bufferLength -= 1;
+	}
+	bufferLength -= 2;
+
+	PORTB = bufferLength;
+
+	sei();
+}

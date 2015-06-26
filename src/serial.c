@@ -22,7 +22,7 @@ void serialInit(uint16_t ubrr) {
 }
 
 void serialPutChar(uint8_t data)
-/* Send a byte through the UART
+/* Send a byte through the UART to the user device
  * This is a blocking function.  It waits until the data buffer is finished
  * transferring data.
  */
@@ -53,7 +53,17 @@ void serialGetChar()
 	putCharInBuffer(UDR0);
 }
 
+/* We have to rename the ISR labels depending AVR microcontroller used
+*	Current options are:
+*	m328, m328p, m2560
+*/
+
+#if defined (__AVR_ATmega328P__) || defined (__AVR_ATmega328__)
+ISR(USART_RX_vect)
+#elif defined (__AVR_ATmega2560__)
 ISR(USART0_RX_vect)
+#endif
+
 /* Interrupt routine for serial receive.
  */
 {

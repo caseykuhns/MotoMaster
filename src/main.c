@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include "parameters.h"
 
-#define BAUD_115200 8
+//#define BAUD_115200 8
 
 char commandBuffer[COMMAND_BUFFER_SIZE];
 
@@ -33,12 +33,13 @@ void setup(){
 int main(void) {
 
 	setup();
-	DDRB = 0xff;
+	//DDRB = 0xff;
 while(1){
+
 
 		while(commandCheckASCII(commandBuffer) == 0);
 		ASCIIComandParse(commandBuffer);
 		restartBuffer();
-	}
 
+	}
 }

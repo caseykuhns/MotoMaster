@@ -41,11 +41,11 @@ static const command_table commands[COMMAND_COUNT] =
 	{"help"		,"h"	,0xff}
 };
 
-static prog_char commands_get_help_message[] PROGMEM 	= "retrieve a parameter or variable.\r\n   Type \"get help\" for more info";
-static prog_char commands_set_help_message[] PROGMEM 	= "enter a parameter or variable.\r\n   Type \"set help\" for more info";
-static prog_char commands_reset_help_message[] PROGMEM 	= "resets the parameter to last saved configuration.\r\n   Type  \"set help\" for more info";
+const PROGMEM char commands_get_help_message[]  	= "retrieve a parameter or variable.\r\n   Type \"get help\" for more info";
+const PROGMEM char commands_set_help_message[]  	= "enter a parameter or variable.\r\n   Type \"set help\" for more info";
+const PROGMEM char commands_reset_help_message[]  	= "resets the parameter to last saved configuration.\r\n   Type  \"set help\" for more info";
 
-static char *commands_help_messages[COMMAND_COUNT - 1] PROGMEM =
+const PROGMEM char * const commands_help_messages[COMMAND_COUNT - 1]  =
 {
 	commands_get_help_message,
 	commands_set_help_message,
@@ -68,13 +68,14 @@ static const command_table objects[OBJECT_COUNT] =
 	{"help"			,"h"	,0xff}
 };
 
-static prog_char objects_channel_help_message[] PROGMEM 	= "objects_channel_help_message";
-static prog_char objects_motor_help_message[] PROGMEM 		= "objects_motor_help_message";
-static prog_char objects_servo_help_message[] PROGMEM 		= "objects_servo_help_message";
-static prog_char objects_controller_help_message[] PROGMEM 	= "objects_controller_help_message";
-static prog_char objects_all_help_message[] PROGMEM 		= "objects_all_help_message";
+const PROGMEM char objects_channel_help_message[] PROGMEM 	= "objects_channel_help_message";
+const PROGMEM char objects_motor_help_message[] PROGMEM 		= "objects_motor_help_message";
+const PROGMEM char objects_servo_help_message[] PROGMEM 		= "objects_servo_help_message";
+const PROGMEM char objects_controller_help_message[] PROGMEM 	= "objects_controller_help_message";
+const PROGMEM char objects_all_help_message[] PROGMEM 		= "objects_all_help_message";
 
-static char *objects_help_messages[OBJECT_COUNT - 1] PROGMEM =
+const PROGMEM char * const objects_help_messages[OBJECT_COUNT - 1]  =
+//const PROGMEM char *objects_help_messages[]  =
 {
 		objects_channel_help_message,
 		objects_motor_help_message,
@@ -119,31 +120,31 @@ static const command_table parameters[PARAMETER_COUNT] =
 	{"help"				,"h"	,0xff}
 };
 
-static prog_char parameters_encoder_help_message[] PROGMEM 			= "parameters_encoder_help_message";
-static prog_char parameters_limit_help_message[] PROGMEM 			= "parameters_limit_help_message";
-static prog_char parameters_potentiometer_help_message[] PROGMEM 	= "parameters_potentiometer_help_message";
+const PROGMEM char parameters_encoder_help_message[] PROGMEM 			= "parameters_encoder_help_message";
+const PROGMEM char parameters_limit_help_message[] PROGMEM 			= "parameters_limit_help_message";
+const PROGMEM char parameters_potentiometer_help_message[] PROGMEM 	= "parameters_potentiometer_help_message";
 
-static prog_char parameters_abs_distance_help_message[] PROGMEM 	= "parameters_abs_distance_help_message";
-static prog_char parameters_acceleration_help_message[] PROGMEM		= "parameters_acceleration_help_message";
-static prog_char parameters_current_help_message[] PROGMEM 			= "parameters_current_help_message";
-static prog_char parameters_derivative_help_message[] PROGMEM 		= "parameters_derivative_help_message";
-static prog_char parameters_direction_help_message[] PROGMEM 		= "parameters_direction_help_message";
-static prog_char parameters_distance_help_message[] PROGMEM 		= "parameters_distance_help_message";
-static prog_char parameters_input_help_message[] PROGMEM 			= "parameters_input_help_message";
-static prog_char parameters_integral_help_message[] PROGMEM 		= "parameters_integral_help_message";
-static prog_char parameters_lipo_protection_help_message[] PROGMEM 	= "parameters_lipo_protection_help_message";
-static prog_char parameters_lipo_status_help_message[] PROGMEM 		= "parameters_lipo_status_help_message";
-static prog_char parameters_max_current_help_message[] PROGMEM 		= "parameters_max_current_help_message";
-static prog_char parameters_max_temperature_help_message[] PROGMEM 	= "parameters_max_temperature_help_message";
-static prog_char parameters_max_velocity_help_message[] PROGMEM 	= "parameters_max_velocity_help_message";
-static prog_char parameters_mode_help_message[] PROGMEM 			= "parameters_mode_help_message";
-static prog_char parameters_position_help_message[] PROGMEM 		= "parameters_position_help_message";
-static prog_char parameters_power_help_message[] PROGMEM 			= "parameters_power_help_message";
-static prog_char parameters_proportional_help_message[] PROGMEM 	= "parameters_proportional_help_message";
-static prog_char parameters_temperature_help_message[] PROGMEM 		= "parameters_temperature_help_message";
-static prog_char parameters_velocity_help_message[] PROGMEM 		= "parameters_velocity_help_message";
+const PROGMEM char parameters_abs_distance_help_message[] PROGMEM 	= "parameters_abs_distance_help_message";
+const PROGMEM char parameters_acceleration_help_message[] PROGMEM		= "parameters_acceleration_help_message";
+const PROGMEM char parameters_current_help_message[] PROGMEM 			= "parameters_current_help_message";
+const PROGMEM char parameters_derivative_help_message[] PROGMEM 		= "parameters_derivative_help_message";
+const PROGMEM char parameters_direction_help_message[] PROGMEM 		= "parameters_direction_help_message";
+const PROGMEM char parameters_distance_help_message[] PROGMEM 		= "parameters_distance_help_message";
+const PROGMEM char parameters_input_help_message[] PROGMEM 			= "parameters_input_help_message";
+const PROGMEM char parameters_integral_help_message[] PROGMEM 		= "parameters_integral_help_message";
+const PROGMEM char parameters_lipo_protection_help_message[] PROGMEM 	= "parameters_lipo_protection_help_message";
+const PROGMEM char parameters_lipo_status_help_message[] PROGMEM 		= "parameters_lipo_status_help_message";
+const PROGMEM char parameters_max_current_help_message[] PROGMEM 		= "parameters_max_current_help_message";
+const PROGMEM char parameters_max_temperature_help_message[] PROGMEM 	= "parameters_max_temperature_help_message";
+const PROGMEM char parameters_max_velocity_help_message[] PROGMEM 	= "parameters_max_velocity_help_message";
+const PROGMEM char parameters_mode_help_message[] PROGMEM 			= "parameters_mode_help_message";
+const PROGMEM char parameters_position_help_message[] PROGMEM 		= "parameters_position_help_message";
+const PROGMEM char parameters_power_help_message[] PROGMEM 			= "parameters_power_help_message";
+const PROGMEM char parameters_proportional_help_message[] PROGMEM 	= "parameters_proportional_help_message";
+const PROGMEM char parameters_temperature_help_message[] PROGMEM 		= "parameters_temperature_help_message";
+const PROGMEM char parameters_velocity_help_message[] PROGMEM 		= "parameters_velocity_help_message";
 
-static char *parameters_help_messages[PARAMETER_COUNT - 1] PROGMEM =
+const PROGMEM char * const parameters_help_messages[PARAMETER_COUNT - 1]  =
 {
 	parameters_encoder_help_message,
 	parameters_limit_help_message,
@@ -194,20 +195,20 @@ static const command_table sub_parameters[SUB_PARAMETER_COUNT] =
 	{"help"				,"h"	, 0xff }
 };
 
-static prog_char sub_parameters_0_help_message[] PROGMEM 				= "sub_parameters_0_help_message";
-static prog_char sub_parameters_1_help_message[] PROGMEM 				= "sub_parameters_1_help_message";
-static prog_char sub_parameters_center_help_message[] PROGMEM 			= "sub_parameters_center_help_message";
-static prog_char sub_parameters_count_per_rev_help_message[] PROGMEM	= "sub_parameters_count_per_rev_help_message";
-static prog_char sub_parameters_direction_help_message[] PROGMEM 		= "sub_parameters_direction_help_message";
-static prog_char sub_parameters_gear_ratio_help_message[] PROGMEM 		= "sub_parameters_gear_ratio_help_message";
-static prog_char sub_parameters_high_range_help_message[] PROGMEM 		= "sub_parameters_high_range_help_message";
-static prog_char sub_parameters_low_range_help_message[] PROGMEM 		= "sub_parameters_low_range_help_message";
-static prog_char sub_parameters_mode_help_message[] PROGMEM 			= "sub_parameters_mode_help_message";
-static prog_char sub_parameters_position_help_message[] PROGMEM 		= "sub_parameters_position_help_message";
-static prog_char sub_parameters_rev_per_deg_help_message[] PROGMEM 		= "sub_parameters_rev_per_deg_help_message";
-static prog_char sub_parameters_wheel_size_help_message[] PROGMEM 		= "sub_parameters_wheel_size_help_message";
+const PROGMEM char sub_parameters_0_help_message[]  				= "sub_parameters_0_help_message";
+const PROGMEM char sub_parameters_1_help_message[]  				= "sub_parameters_1_help_message";
+const PROGMEM char sub_parameters_center_help_message[]  			= "sub_parameters_center_help_message";
+const PROGMEM char sub_parameters_count_per_rev_help_message[] 	= "sub_parameters_count_per_rev_help_message";
+const PROGMEM char sub_parameters_direction_help_message[]  		= "sub_parameters_direction_help_message";
+const PROGMEM char sub_parameters_gear_ratio_help_message[]  		= "sub_parameters_gear_ratio_help_message";
+const PROGMEM char sub_parameters_high_range_help_message[]  		= "sub_parameters_high_range_help_message";
+const PROGMEM char sub_parameters_low_range_help_message[]  		= "sub_parameters_low_range_help_message";
+const PROGMEM char sub_parameters_mode_help_message[]  			= "sub_parameters_mode_help_message";
+const PROGMEM char sub_parameters_position_help_message[]  		= "sub_parameters_position_help_message";
+const PROGMEM char sub_parameters_rev_per_deg_help_message[]  		= "sub_parameters_rev_per_deg_help_message";
+const PROGMEM char sub_parameters_wheel_size_help_message[]  		= "sub_parameters_wheel_size_help_message";
 
-static char *sub_parameters_help_messages[SUB_PARAMETER_COUNT - 1] PROGMEM =
+const PROGMEM char * const sub_parameters_help_messages[SUB_PARAMETER_COUNT - 1]  =
 {
 		sub_parameters_0_help_message,
 		sub_parameters_1_help_message,
@@ -235,10 +236,10 @@ static const command_table limit_sub_parameters[LIMIT_SUB_PARAMETER_COUNT] =
 	{"help"		,"h"	, 0xff }
 };
 
-static prog_char limit_sub_parameters_mode_help_message[] PROGMEM 			= "limit_sub_parameters_mode_help_message";
-static prog_char limit_sub_parameters_status_help_message[] PROGMEM 		= "limit_sub_parameters_status_help_message";
+const PROGMEM char limit_sub_parameters_mode_help_message[]		= "limit_sub_parameters_mode_help_message";
+const PROGMEM char limit_sub_parameters_status_help_message[]	= "limit_sub_parameters_status_help_message";
 
-static char *limit_sub_parameters_help_messages[LIMIT_SUB_PARAMETER_COUNT - 1] PROGMEM =
+const PROGMEM char * const limit_sub_parameters_help_messages[LIMIT_SUB_PARAMETER_COUNT - 1]  =
 {
 		sub_parameters_0_help_message,
 		sub_parameters_1_help_message
